@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'entry' => [
+	        'driver' => 'session',
+	        'provider' => 'entrants',
+        ],
+        'judge' => [
+	        'driver' => 'session',
+	        'provider' => 'judges'
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -62,12 +70,23 @@ return [
     |
     | Supported: "database", "eloquent"
     |
+    | For AwardsTwo - laracasts.com/discuss/channels/laravel/52-auth-multiple-tables
+    |
+    |
     */
 
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'judges' => [
+	        'driver' => 'eloquent',
+	        'model' => App\Judges::class,
+        ],
+        'entrants' => [
+	        'driver' => 'eloquent',
+	        'model' => App\Entrants::class,
         ],
 
         // 'users' => [
