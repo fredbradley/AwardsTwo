@@ -82,11 +82,11 @@ return [
         ],
         'judges' => [
 	        'driver' => 'eloquent',
-	        'model' => App\Judges::class,
+	        'model' => App\Judge::class,
         ],
         'entrants' => [
 	        'driver' => 'eloquent',
-	        'model' => App\Entrants::class,
+	        'model' => App\Entrant::class,
         ],
 
         // 'users' => [
@@ -115,8 +115,14 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'entrants' => [
+            'provider' => 'entrants',
+            'email' => 'auth.emails.password',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'judges' => [
+            'provider' => 'entrants',
             'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
