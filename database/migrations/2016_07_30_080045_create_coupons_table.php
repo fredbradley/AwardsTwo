@@ -15,7 +15,7 @@ class CreateCouponsTable extends Migration
         Schema::create('coupons', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code')->unique();
-            $table->enum('type', array('percentage', 'flat'));
+            $table->enum('type', ['percentage', 'flat']);
             $table->integer('percent_off');
             $table->integer('flat_rate');
             $table->timestamps();
