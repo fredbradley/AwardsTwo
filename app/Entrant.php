@@ -6,7 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Entrant extends Authenticatable
 {
-	protected $table = 'entrants';
+    protected $table = 'entrants';
     /**
      * The attributes that are mass assignable.
      *
@@ -25,7 +25,8 @@ class Entrant extends Authenticatable
         'password', 'remember_token',
     ];
     
-    public function contacts() {
-	    return $this->hasOne('App\EntrantContacts');
+    public function contacts()
+    {
+        return $this->hasOne('App\EntrantContacts');
     }
 }

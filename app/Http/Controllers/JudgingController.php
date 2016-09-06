@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class JudgingController extends Controller
 {
-	public function __construct() {
-		$this->middleware('judge');
-	}
-	public function index() {
-		return view('judge.pages.home');
-	}
-}	
+    public function __construct()
+    {
+        $this->middleware('judge');
+    }
+    public function index()
+    {
+        return view('judge.pages.home');
+    }
+}
