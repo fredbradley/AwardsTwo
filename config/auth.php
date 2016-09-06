@@ -117,13 +117,13 @@ return [
     'passwords' => [
         'entrants' => [
             'provider' => 'entrants',
-            'email' => 'auth.emails.password',
+            //'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
         'judges' => [
             'provider' => 'entrants',
-            'email' => 'auth.emails.password',
+            //'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
