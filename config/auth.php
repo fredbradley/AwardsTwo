@@ -41,12 +41,12 @@ return [
             'provider' => 'users',
         ],
         'entry' => [
-	        'driver' => 'session',
-	        'provider' => 'entrants',
+            'driver' => 'session',
+            'provider' => 'entrants',
         ],
         'judge' => [
-	        'driver' => 'session',
-	        'provider' => 'judges'
+            'driver' => 'session',
+            'provider' => 'judges'
         ],
 
         'api' => [
@@ -81,12 +81,12 @@ return [
             'model' => App\User::class,
         ],
         'judges' => [
-	        'driver' => 'eloquent',
-	        'model' => App\Judge::class,
+            'driver' => 'eloquent',
+            'model' => App\Judge::class,
         ],
         'entrants' => [
-	        'driver' => 'eloquent',
-	        'model' => App\Entrant::class,
+            'driver' => 'eloquent',
+            'model' => App\Entrant::class,
         ],
 
         // 'users' => [
@@ -117,13 +117,13 @@ return [
     'passwords' => [
         'entrants' => [
             'provider' => 'entrants',
-            'email' => 'auth.emails.password',
+            //'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
         'judges' => [
             'provider' => 'entrants',
-            'email' => 'auth.emails.password',
+            //'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],

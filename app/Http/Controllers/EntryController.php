@@ -8,15 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class EntryController extends Controller
 {
-	public function __construct() {
-		$this->middleware('entrant');
-	}
-	public function index() {
-		$fred = (\App\Entrant::find(1));
-		
-		var_dump($fred);
-		$home = $fred->contacts;
-		var_dump($home);
-		return view('enter.dashboard');
-	}
-}	
+    public function __construct()
+    {
+        $this->middleware('entrant');
+    }
+    public function index()
+    {
+        $fred = (\App\Entrant::find(1));
+        
+        var_dump($fred);
+        $home = $fred->contacts;
+        var_dump($home);
+        return view('enter.dashboard');
+    }
+}

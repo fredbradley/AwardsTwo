@@ -9,5 +9,4 @@ class Awards extends Model
     //
     protected $table = 'awards';
     protected $guarded = [];
-    
 }

@@ -41,15 +41,17 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
-	public function showLoginForm() {
-		if (view()->exists('auth.authenticate')) {
-			return view('auth.authenticate');
-		}
-		return view('enter.auth.login');
-	}
-	public function showRegistrationForm() {
-		return view ('enter.auth.register');
-	}
+    public function showLoginForm()
+    {
+        if (view()->exists('auth.authenticate')) {
+            return view('auth.authenticate');
+        }
+        return view('enter.auth.login');
+    }
+    public function showRegistrationForm()
+    {
+        return view('enter.auth.register');
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -63,7 +65,7 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
         ]);
     }
-	
+    
     /**
      * Create a new user instance after a valid registration.
      *
