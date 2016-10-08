@@ -75,7 +75,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Student Radio Awards
+                    Enter
                 </div>
 
                 <div class="links">

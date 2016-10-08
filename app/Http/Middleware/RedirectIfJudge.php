@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfNotEntrant
+class RedirectIfJudge
 {
 	/**
 	 * Handle an incoming request.
@@ -15,10 +15,10 @@ class RedirectIfNotEntrant
 	 * @param  string|null  $guard
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next, $guard = 'entrant')
+	public function handle($request, Closure $next, $guard = 'judge')
 	{
-	    if (!Auth::guard($guard)->check()) {
-	        return redirect('login');
+	    if (Auth::guard($guard)->check()) {
+	        return redirect('home');
 	    }
 
 	    return $next($request);

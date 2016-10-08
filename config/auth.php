@@ -36,19 +36,20 @@ return [
     */
 
     'guards' => [
+        'judge' => [
+            'driver' => 'session',
+            'provider' => 'judges',
+        ],
+
+        'entrant' => [
+            'driver' => 'session',
+            'provider' => 'entrants',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'entry' => [
-            'driver' => 'session',
-            'provider' => 'entrants',
-        ],
-        'judge' => [
-            'driver' => 'session',
-            'provider' => 'judges'
-        ],
-
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -115,15 +116,14 @@ return [
     */
 
     'passwords' => [
-        'entrants' => [
-            'provider' => 'entrants',
-            //'email' => 'auth.emails.password',
+        'judges' => [
+            'provider' => 'judges',
             'table' => 'password_resets',
             'expire' => 60,
         ],
-        'judges' => [
+
+        'entrants' => [
             'provider' => 'entrants',
-            //'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],

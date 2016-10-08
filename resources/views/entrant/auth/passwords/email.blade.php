@@ -1,4 +1,4 @@
-@extends('judge.layout.auth')
+@extends('entrant.layout.auth')
 
 <!-- Main Content -->
 @section('content')
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/judge/password/email') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/entrant/password/email') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

@@ -35,11 +35,55 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapWebRoutes();
-
         $this->mapApiRoutes();
 
+        $this->mapWebRoutes();
+
+        $this->mapJudgeRoutes();
+
+        $this->mapEntrantRoutes();
+
         //
+    }
+
+    /**
+     * Define the "entrant" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapEntrantRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'entrant', 'auth:entrant'],
+//            'prefix' => 'entrant',
+            'domain' => 'enter.awardstwo.com',
+            'as' => 'entrant.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/entrant.php');
+        });
+    }
+
+    /**
+     * Define the "judge" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapJudgeRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'judge', 'auth:judge'],
+            'domain' => 'judge.awardstwo.com',
+//            'prefix' => 'judge',
+            'as' => 'judge.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/judge.php');
+        });
     }
 
     /**
