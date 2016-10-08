@@ -12,3 +12,5 @@ Mostly, but I want to keep the codebase open so that you can help and submit pul
 ## Developer
 ### Fred Bradley
 I am a PHP developer, normally I fiddle around with Wordpress installations. You can find out more about me via my website: www.fredbradley.co.uk or catch me on twitter [@FredBradley](http://www.twitter.com/fredbradley).
+
+TEST
