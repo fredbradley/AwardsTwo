@@ -19,8 +19,11 @@ class DatabaseSeeder extends Seeder
     		DB::table($table)->truncate();
     	}
         DB::statement("SET foreign_key_checks=1");
+
+
         //Order of the calls is import for foreign key constraints
-        $this->call('Entrants');       
+        $this->call('Judges');         
+        $this->call('Entrants');
        
     }
 }

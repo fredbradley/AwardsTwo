@@ -18,9 +18,10 @@ class CreateEntrantsTable extends Migration
             $table->string('surname')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-		$table->integer('contacts_id')->nullable();
+			$table->integer('contacts_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
