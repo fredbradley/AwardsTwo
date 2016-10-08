@@ -10,15 +10,20 @@ class EntryController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('entrant');
+
     }
-    public function index()
+
+	public function chooseAward() {
+		return view('entrant.home');
+	}
+    public function dashboard()
     {
-        $fred = (\App\Entrant::find(1));
+        $awards = (\App\Awards::get());
+        if (count($awards)==0) {
+	        \Session::flash("message", "message");
+        }
         
-        var_dump($fred);
-        $home = $fred->contacts;
-        var_dump($home);
-        return view('enter.dashboard');
+        dump($awards);
+        return view('entrant.dashboard');
     }
 }
