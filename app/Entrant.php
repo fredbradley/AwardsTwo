@@ -5,10 +5,12 @@ namespace App;
 use App\Notifications\EntrantResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Entrant extends Authenticatable
 {
     use Notifiable;
+    use LogsActivity;
 
     /**
      * The attributes that are mass assignable.
