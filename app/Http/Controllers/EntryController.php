@@ -23,7 +23,7 @@ class EntryController extends Controller
 	        \Session::flash("message", "message");
         }
         
-        dump($awards);
+        //dump($awards);
         return view('entrant.dashboard');
     }
 }

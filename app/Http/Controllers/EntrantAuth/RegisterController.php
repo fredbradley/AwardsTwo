@@ -53,8 +53,13 @@ class RegisterController extends Controller
             'surname' => 'required|max:255',
             'email' => 'required|email|max:255|unique:entrants',
             'password' => 'required|min:6|confirmed',
-        ]);
+        ], $this->messages());
     }
+    public function messages() {
+		return [
+			'email.unique' => 'This email address has already been registered. Have you forgotten your password?',
+		];
+	}
 
     /**
      * Create a new user instance after a valid registration.

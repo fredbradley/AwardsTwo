@@ -11,6 +11,7 @@
     <title>{{config('app.name')}} - @yield('title')</title>
 
     <!-- Styles -->
+    <link href="{{url('/css/vendor.css')}}" rel="stylesheet">
     <link href="{{url('/css/app.css')}}" rel="stylesheet">
 
     <!-- Scripts -->
