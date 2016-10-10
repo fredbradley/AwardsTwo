@@ -10,4 +10,5 @@ Route::get('/', function () {
     return view('judge.home');
 })->name('home');
 
+Route::resource('awards', 'AwardsController');
 

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         //Order of the calls is import for foreign key constraints
         $this->call('Judges');         
         $this->call('Entrants');
+        $this->call('Awards');
        
     }
 }

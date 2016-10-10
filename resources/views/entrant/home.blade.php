@@ -8,7 +8,13 @@
                 <div class="panel-heading">Choose an Award</div>
 
                 <div class="panel-body">
+                <ul class="list-group">
 
+
+                	@foreach ($awards as $award)
+                	  <li class="list-group-item"><a href="{{url('?chosen-award-id='.$award->id)}}">{{$award->name}}</a></li>
+					@endforeach
+                </ul>
                 </div>
             </div>
         </div>

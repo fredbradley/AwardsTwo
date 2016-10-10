@@ -13,7 +13,11 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{config('app.name')}} - Enter
+                	@if (session('chosen-award-id'))
+                		{{\App\Awards::find(session('chosen-award-id'))->name}}
+                	@else
+	                    {{config('app.name')}} - Enter
+                    @endif
                 </a>
             </div>
 
