@@ -1,4 +1,4 @@
-@extends('judge.layout.auth')
+@extends('judge.layout.master')
 
 @section('content')
 <div class="container">
