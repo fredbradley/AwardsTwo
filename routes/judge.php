@@ -1,14 +1,10 @@
 <?php
+Route::get('home', function() {
+	return redirect('/');
+});
 
-Route::get('/', function () {
-    $users[] = Auth::user();
-    $users[] = Auth::guard()->user();
-    $users[] = Auth::guard('judge')->user();
+Route::get('/', 'JudgingController@index')->name('home');
 
-    //dd($users);
-
-    return view('judge.home');
-})->name('home');
 
 Route::resource('awards', 'AwardsController');
 

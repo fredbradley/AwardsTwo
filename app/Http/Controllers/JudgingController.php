@@ -14,6 +14,6 @@ class JudgingController extends Controller
     }
     public function index()
     {
-        return view('judge.pages.home');
+        return view('judge.pages.blank');
     }
 }

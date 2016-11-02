@@ -64,7 +64,7 @@ return [
       "email"=> "Email",
       "password"=> "Password",
       "register"=> "Register",
-      "username"=> "Your Cranleigh Username",
+      "username"=> "Username",
       "loginpage"=> "Login Page",
       "fullname"=> "Full Name",
       "repeatpass"=> "Repeat Password"
