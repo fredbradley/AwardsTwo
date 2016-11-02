@@ -14,7 +14,7 @@
 							<fieldset class="form-group{{$errors->has('name') ? ' has-error' : '' }}">
 								<label for="name" class="col-sm-2 control-label">Award Name</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="name" placeholder="My Great Awards" value="{{old('name', $award->name)}}">
+									<input type="text" class="form-control" name="name" id="name" placeholder="My Great Awards" value="{{old('name', $award->name)}}">
 									@if ($errors->has('name'))
 										<span class="help-block">
 											<strong>{{ $errors->first('name') }}</strong>
@@ -25,7 +25,7 @@
 							<fieldset class="form-group{{$errors->has('prefix') ? ' has-error' : '' }}">
 								<label for="prefix" class="col-sm-2 control-label">Database Prefix</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="prefix" disabled="disabled" placeholder="My Great Awards" value="{{old('name', $award->prefix)}}">
+									<input type="text" class="form-control" name="prefix" id="prefix" disabled="disabled" placeholder="My Great Awards" value="{{old('prefix', $award->prefix)}}">
 									@if ($errors->has('prefix'))
 										<span class="help-block">
 											<strong>{{ $errors->first('prefix') }}</strong>
@@ -33,10 +33,21 @@
 									@endif
 								</div>
 							</fieldset>
+							<fieldset class="form-group{{$errors->has('event_link') ? ' has-error' : '' }}">
+								<label for="event_admin_name" class="col-sm-2 control-label">Event Website</label>
+								<div class="col-sm-10">
+									<input type="url" class="form-control" name="event_link" id="event_link" placeholder="http://www.studentradioawards.co.uk" value="{{old('event_link', $award->event_link)}}">
+									@if ($errors->has('event_link'))
+										<span class="help-block">
+											<strong>{{ $errors->first('event_link') }}</strong>
+										</span>
+									@endif
+								</div>
+							</fieldset>
 							<fieldset class="form-group{{$errors->has('event_admin_name') ? ' has-error' : '' }}">
 								<label for="event_admin_name" class="col-sm-2 control-label">Admin Name</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="event_admin_name" placeholder="My Name" value="{{old('event_admin_name', $award->event_admin_name)}}">
+									<input type="text" class="form-control" name="event_admin_name" id="event_admin_name" placeholder="My Name" value="{{old('event_admin_name', $award->event_admin_name)}}">
 									@if ($errors->has('event_admin_name'))
 										<span class="help-block">
 											<strong>{{ $errors->first('event_admin_name') }}</strong>
@@ -47,7 +58,7 @@
 							<fieldset class="form-group{{$errors->has('event_admin_email') ? ' has-error' : '' }}">
 								<label for="name" class="col-sm-2 control-label">Admin Email</label>
 								<div class="col-sm-10">
-									<input type="email" class="form-control" id="event_admin_email" placeholder="my@email.com" value="{{old('event_admin_email', $award->event_admin_email)}}">
+									<input type="email" class="form-control" name="event_admin_email" id="event_admin_email" placeholder="my@email.com" value="{{old('event_admin_email', $award->event_admin_email)}}">
 									@if ($errors->has('event_admin_email'))
 										<span class="help-block">
 											<strong>{{ $errors->first('event_admin_email') }}</strong>
@@ -58,6 +69,7 @@
 							<fieldset class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
 									<button type="submit" class="btn btn-primary">Save</button> &nbsp; 
+									<a type="button" href="javascript:history.go(-1)" class="btn btn-secondary">Back</a>
 								</div>
 							</fieldset>
 						</form>

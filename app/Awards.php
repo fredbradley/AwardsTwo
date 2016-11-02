@@ -4,13 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Awards extends Model
 {
  	use LogsActivity;
+ 	use SoftDeletes;
     //
     protected $table = 'awards';
     protected $guarded = [];
+
     
     public function timeUntilDeadline() {
 	    $now = time();

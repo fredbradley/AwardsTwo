@@ -23,7 +23,7 @@
 								<tr>
 									<td><a href="{{route('judge.awards.edit', $award->id)}}">{{$award->name}}</a></td>
 									<td><span class="label label-default">{{$award->prefix}}</span></td>
-									<td>{{$award->timeUntilDeadline()}}
+									<td>{{date(config('app.date_format_with_time'), $award->entries_close_date)}}
 								</tr>
 								@endforeach
 							</tbody>

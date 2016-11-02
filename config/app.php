@@ -2,6 +2,20 @@
 
 return [
 
+	/*
+    |--------------------------------------------------------------------------
+    | Date Format
+    |--------------------------------------------------------------------------
+    |
+    | A custom variable written by Fred so that all dates across the project
+    | adhere to the same format. And if the client wants to change that format
+    | we only need to change it here, rather than tearing our hair out looking
+    | for each time we used it across the netire project!
+    */
+    
+	'date_format' => 'D jS M Y', // jS F Y
+	'date_format_with_time' => 'D jS M Y g:ia',
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -219,6 +233,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Input'     => Illuminate\Support\Facades\Input::class,
 
     ],
 

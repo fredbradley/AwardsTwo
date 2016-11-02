@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\Awards;
 use Validator;
 use Schema;
+use Input;
+
 
 class AwardsController extends Controller
 {
@@ -188,8 +190,14 @@ class AwardsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+		$this->validate($request, [
+            'name' => 'required|max:255',
+            'event_link' => 'required|url'
+        ]);
+
         $award = Awards::find($id);
+        $award->update(Input::all());
+        
         return redirect()->route('judge.awards.index');
     }
 
