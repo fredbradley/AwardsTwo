@@ -1,6 +1,6 @@
 <?php
 Route::get('home', function() {
-	return redirect('/');
+	return redirect()->route('judge.home');
 });
 
 Route::get('/', 'JudgingController@index')->name('home');

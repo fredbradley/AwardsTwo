@@ -29,7 +29,8 @@ class AwardsController extends Controller
      */
     public function index()
     {
-        //
+        $awards = Awards::all();
+        return view("judge.pages.awards-index", ['awards' => $awards]);
     }
 
     private function createEntriesSchema()
@@ -123,7 +124,7 @@ class AwardsController extends Controller
      */
     public function create()
     {
-        return view('test');
+        return view('judge.pages.awards-create');
     }
 
     /**
@@ -136,19 +137,20 @@ class AwardsController extends Controller
     {
                 
         $this->validate($request, [
-            'award_name' => 'required|max:255',
-            'prefix' => 'required|unique:awards|max:10'
+            'name' => 'required|max:255',
+            'prefix' => 'required|unique:awards|max:7|alpha_num'
         ]);
-        
-        $this->prefix = $request->input('prefix');
-        
+		
+		$this->prefix = $request->input('prefix'); // Needed for the auto create functions to work
+		
         try {
-            $create_award = Awards::create(['name' => $request->input('award_name'), "prefix" => $this->prefix]);
+            $create_award = Awards::create(['name' => $request->input('name'), "prefix" => $request->input('prefix')]);
             $this->createCategoriesSchema();
             $this->createEntriesSchema();
             $this->createJudgeFeedbackSchema();
-            return \redirect()->guest(route('award/create'));
+            return redirect()->route('judge.awards.index');
         } catch (\Exception $e) {
+	        dd($e);
             return view("errors/503");
         }
     }
@@ -173,6 +175,8 @@ class AwardsController extends Controller
     public function edit($id)
     {
         //
+        $award = Awards::find($id);
+        return view('judge.pages.awards-edit', ['award'=>$award]);
     }
 
     /**
@@ -185,6 +189,8 @@ class AwardsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $award = Awards::find($id);
+        return redirect()->route('judge.awards.index');
     }
 
     /**

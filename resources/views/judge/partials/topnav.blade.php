@@ -11,7 +11,7 @@
             <li class="nav-item admin-section">
             	<div class="dropdown admin-dropdown">
             		<a href class="dropdown-toggle dropdown-caret nav-link nav-link-3rd" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-	            		<img src="images/flat-avatar.png" class="topnav-img" alt=""><span class="hidden-md-down clearfix">{{ Auth::user()->first_name }} {{Auth::user()->surname }}</span>
+	            		<img src="{{url('images/flat-avatar.png')}}" class="topnav-img" alt=""><span class="hidden-md-down clearfix">{{ Auth::user()->first_name }} {{Auth::user()->surname }}</span>
 	            	</a>
 	            	<ul class="dropdown-menu navbar-nav animated fadeIn">
             			<li>
