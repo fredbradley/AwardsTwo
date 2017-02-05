@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                     You are logged in as Entrant!
+                    {{dump(session('award'))}}
                 </div>
             </div>
         </div>

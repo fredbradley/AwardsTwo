@@ -71,7 +71,7 @@ class AwardsController extends Controller
                 $table->boolean('kevin_greening')->default(0);
                 $table->string('OToken')->nullable();
                 $table->timestamps();
-                
+                $table->softdeletes();
                 $table->foreign('Cat')->references('id')->on($this->prefix."_categories");
             });
         endif;
@@ -143,10 +143,10 @@ class AwardsController extends Controller
             'prefix' => 'required|unique:awards|max:7|alpha_num'
         ]);
 		
-		$this->prefix = $request->input('prefix'); // Needed for the auto create functions to work
+		$this->prefix = $request->prefix; // Needed for the auto create functions to work
 		
         try {
-            $create_award = Awards::create(['name' => $request->input('name'), "prefix" => $request->input('prefix')]);
+            $create_award = Awards::create(['name' => $request->name, "prefix" => $request->prefix]);
             $this->createCategoriesSchema();
             $this->createEntriesSchema();
             $this->createJudgeFeedbackSchema();

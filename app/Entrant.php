@@ -45,4 +45,7 @@ class Entrant extends Authenticatable
     {
         return $this->hasOne('App\EntrantContacts');
     }
+    public function entries() {
+	    return $this->hasMany('App\Entries');
+    }
 }
