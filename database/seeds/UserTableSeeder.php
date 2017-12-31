@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
         if (!User::where('name', 'admin')->first()) {
             $user = User::create([
                 'name' => 'Admin',
-                'email' => 'admin@example.com',
+                'email' => 'audioawards@fredbradley.co.uk',
                 'password' => bcrypt('admin'),
             ]);
 
