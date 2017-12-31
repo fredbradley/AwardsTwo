@@ -9,3 +9,4 @@ Over the last 18 months I've learnt a lot more about frameworks and building an 
 ## On your own?
 Mostly, but I want to keep the codebase open so that you can help and submit pull requests to either add features, or improve code that I have written. 
 
+Bump
