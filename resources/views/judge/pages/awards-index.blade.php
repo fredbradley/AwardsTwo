@@ -1,6 +1,5 @@
 @extends('judge.layouts.dashboard')
 @section('section')
-	<pageheader pagename="Table" subtitle="Bootstrap UI Elements"></pageheader>
 	<div class="conter-wrapper">				
 		
 		<div class="row">
@@ -14,16 +13,16 @@
 							<thead>
 								<tr>
 									<th>Award</th>
-									<th>Prefix</th>
 									<th>Entry Deadline</th>
+									<th>#</th>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach ($awards as $award)
 								<tr>
-									<td><a href="{{route('judge.awards.edit', $award->id)}}">{{$award->name}}</a></td>
-									<td><span class="label label-default">{{$award->prefix}}</span></td>
-									<td>{{date(config('app.date_format_with_time'), $award->entries_close_date)}}
+									<td><a href="{{route('judge.awards.edit', $award->id)}}">{{$award->name}}</a><br /><span class="label label-default">{{$award->prefix}}</span></td>
+									<td>{{Carbon\Carbon::createFromTimestamp($award->entries_close_date)->diffForHumans()}}</td>
+									<td><a href="{{route('judge.categories.index', ["award_id"=>$award->id])}}" class="btn btn-sm btn-info"><i class="fa fa-database"></i></a></td>
 								</tr>
 								@endforeach
 							</tbody>

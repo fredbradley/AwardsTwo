@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 use App\Http\Requests;
 
@@ -32,6 +33,7 @@ class AwardsController extends Controller
     public function index()
     {
         $awards = Awards::all();
+
         return view("judge.pages.awards-index", ['awards' => $awards]);
     }
 
@@ -45,14 +47,14 @@ class AwardsController extends Controller
                 $table->string('Entry_Name');
                 $table->integer('Entry_Contact');
                 $table->integer('Entrant_ID');
-                $table->string('CharityNumber');
+                $table->string('CharityNumber')->nullable();
                 $table->text('Address');
                 $table->string('PostCode', 10);
                 $table->string('Email');
                 $table->string('Phone', 100);
-                $table->text('supporting_website');
-                $table->text('instructions');
-                $table->text('SupportingAgencies');
+                $table->text('supporting_website')->nullable();
+                $table->text('instructions')->nullable();
+                $table->text('SupportingAgencies')->nullable();
                 $table->text('audio')->nullable();
                 $table->text('image_one')->nullable();
                 $table->text('image_two')->nullable();
@@ -85,14 +87,14 @@ class AwardsController extends Controller
                 $table->boolean('published')->default(1);
                 $table->boolean('is_parent')->default(0);
                 $table->integer('parent_cat')->default(0);
-                $table->text('criteria');
+                $table->text('criteria')->nullable();
                 $table->integer('length')->default(0);
-                $table->boolean('allow_audio');
-                $table->text('price_points');
-                $table->string('duration');
-                $table->text('metrics');
-                $table->string('sponsor_name');
-                $table->text('sponsor_logo');
+                $table->boolean('allow_audio')->default(0);
+                $table->text('price_points')->nullable();
+                $table->string('duration')->nullable();
+                $table->text('metrics')->nullable();
+                $table->string('sponsor_name')->nullable();
+                $table->text('sponsor_logo')->nullable();
                                                 
                 $table->timestamps();
             });
@@ -146,7 +148,7 @@ class AwardsController extends Controller
 		$this->prefix = $request->prefix; // Needed for the auto create functions to work
 		
         try {
-            $create_award = Awards::create(['name' => $request->name, "prefix" => $request->prefix]);
+            $create_award = Awards::create(['name' => $request->name, "prefix" => $request->prefix, "entries_close_date" => time()]);
             $this->createCategoriesSchema();
             $this->createEntriesSchema();
             $this->createJudgeFeedbackSchema();
